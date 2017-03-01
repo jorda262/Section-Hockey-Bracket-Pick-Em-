@@ -7,6 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Cookie|Cuprum' rel='stylesheet' type='text/css'>
     <link href="bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet">
     <link href="assign2.css" rel="stylesheet">
+    <link href ="sign.css" rel ="stylesheet">
 </head>
 
 <body>
@@ -41,6 +42,23 @@
    </div>
 </header>
 
+<div class="box">
+  <div id = "verticalSpace">
+    <form id="signup">
+        <div class="header">
+            <h3>Sign In</h3
+        </div>
+        <div class="sep"></div>
+        <div class="inputs">
+            <input type="text" placeholder="User Name" autofocus />
+            <input type="password" placeholder="Password" />
+            <a id="submit" href="#">SIGN IN</a>
+        </div>
+    </form>
+  </div>
+</div>
+
+​
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </body>

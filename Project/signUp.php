@@ -7,6 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Cookie|Cuprum' rel='stylesheet' type='text/css'>
     <link href="bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet">
     <link href="assign2.css" rel="stylesheet">
+    <link href ="sign.css" rel="stylesheet">
 </head>
 
 <body>
@@ -39,80 +40,132 @@
          </div>
       </div>
    </div>
-
-   <div id="mainForm">
-   <div class="container">
-     <div class="row">
-       <div class="col-md-8">
-        <form>
-             <div class="form-group row">
-           <label for="example-text-input" class="col-2 col-form-label">First Name</label>
-           <div class="col-10">
-             <input class="form-control" type="text" id="firstName">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-search-input" class="col-2 col-form-label">Last Name</label>
-           <div class="col-10">
-             <input class="form-control" type="text" id="lastName">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-email-input" class="col-2 col-form-label">Email</label>
-           <div class="col-10">
-             <input class="form-control" type="email" id="email">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-url-input" class="col-2 col-form-label">Password</label>
-           <div class="col-10">
-             <input class="form-control" type="password" id="password">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-url-input" class="col-2 col-form-label">Password Confirm</label>
-           <div class="col-10">
-             <input class="form-control" type="password" id="passwordAgain">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-tel-input" class="col-2 col-form-label">User Name</label>
-           <div class="col-10">
-             <input class="form-control" type="text"  id="userName">
-           </div>
-         </div>
-         <div class="form-group row">
-           <label for="example-password-input" class="col-2 col-form-label">Favorite Team</label>
-           <div class="col-10">
-             <select class="form-control" type="text" id="team">
-
-               <option>Benilde St. Margarets</option>
-               <option>Blaine</option>
-               <option>Centennial</option>
-               <option>Duluth East</option>
-               <option>Edina</option>
-               <option>Elk River</option>
-               <option>Eden Prairie</option>
-               <option>Grand Rapids</option>
-               <option>Hill Murray</option>
-               <option>Holy Family</option>
-               <option>Lakeville North</option>
-               <option>Minnetonka</option>
-               <option>Moorhead</option>
-               <option>Roseau</option>
-               <option>St. Thomas</option>
-               <option>Stillwater</option>
-               <option>Wayzata</option>
-               <option>White Bear Lake</option>
-             </select>
-           </div>
-         </div>
-        </form>
-       </div>
-     </div>
-   </div>
- </div>
 </header>
+
+
+
+<div class="box">
+  <div id = "verticalSpace">
+    <form id="signup">
+        <div class="header">
+            <h3>Sign Up</h3>
+        </div>
+        <div class="sep"></div>
+        <div class="inputs">
+            <input type="text" placeholder="First-Name" autofocus>
+            <input type="text" placeholder="Last-Name">
+            <input type="text" placeholder="User Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password Confirm">
+            <select class="form-control" type="text" id="team" placeholder="Favorite Team">
+              <option value='' selected='selected' disabled>Favorite Team</option>
+              <option>Benilde St. Margarets</option>
+              <option>Blaine</option>
+              <option>Centennial</option>
+              <option>Duluth East</option>
+              <option>Edina</option>
+              <option>Elk River</option>
+              <option>Eden Prairie</option>
+              <option>Grand Rapids</option>
+              <option>Hill Murray</option>
+              <option>Holy Family</option>
+              <option>Lakeville North</option>
+              <option>Minnetonka</option>
+              <option>Moorhead</option>
+              <option>Roseau</option>
+              <option>St. Thomas</option>
+              <option>Stillwater</option>
+              <option>Wayzata</option>
+              <option>White Bear Lake</option>
+            </select>
+            <div class="checkboxy">
+                <input name="cecky" id="checky" value="1" type="checkbox" /><label class="terms">I accept the terms of use</label>
+            </div>
+            <a id="submit" href="#">SIGN UP</a>
+        </div>
+    </form>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+<!--<div class="container">
+  <div id="mainForm">
+    <form>
+    <div class="row">
+      <div class="col-md-8">
+            <div class="form-group row">
+          <label for="example-text-input" class="col-2 col-form-label">First Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text" id="firstName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-search-input" class="col-2 col-form-label">Last Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text" id="lastName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label">Email</label>
+          <div class="col-10">
+            <input class="form-control" type="email" id="email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-url-input" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input class="form-control" type="password" id="password">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-url-input" class="col-2 col-form-label">Password Confirm</label>
+          <div class="col-10">
+            <input class="form-control" type="password" id="passwordAgain">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-tel-input" class="col-2 col-form-label">User Name</label>
+          <div class="col-10">
+            <input class="form-control" type="text"  id="userName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-password-input" class="col-2 col-form-label">Favorite Team</label>
+          <div class="col-10">
+            <select class="form-control" type="text" id="team">
+
+              <option>Benilde St. Margarets</option>
+              <option>Blaine</option>
+              <option>Centennial</option>
+              <option>Duluth East</option>
+              <option>Edina</option>
+              <option>Elk River</option>
+              <option>Eden Prairie</option>
+              <option>Grand Rapids</option>
+              <option>Hill Murray</option>
+              <option>Holy Family</option>
+              <option>Lakeville North</option>
+              <option>Minnetonka</option>
+              <option>Moorhead</option>
+              <option>Roseau</option>
+              <option>St. Thomas</option>
+              <option>Stillwater</option>
+              <option>Wayzata</option>
+              <option>White Bear Lake</option>
+            </select>
+          </div>
+        </div>
+       </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>

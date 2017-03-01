@@ -6,6 +6,7 @@
 h1 { font-size: 3em; font-weight: bold; margin-top: 0; font-family: 'Cookie', cursive;}
 
 h2, h3, h4 {     font-family: Cuprum, Arial, sans-serif; }
+form {margin: 0 auto; width: 60%;}
 
 div#topHeaderRow {
 
@@ -25,10 +26,7 @@ div#topHeaderRow .navbar-text {
 div#topHeaderRow .navbar-text  a, div#topHeaderRow ul  a  {
    color: rgb(248, 248, 248);
 }
-
-div#mainForm{
-  margin: auto;
-}
+div#mainForm{margin: 0 auto; width: 65%; border: inset;}
 
 .price { font-size: 1.4em; color: red; font-weight: bold;}
 
