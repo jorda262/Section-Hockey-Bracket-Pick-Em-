@@ -33,14 +33,16 @@
                <?php
                if(isset($_SESSION['username']))
                {
-                 echo "<p class='navbar-text'>Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>, <a href='destroy.php' class='navbar-link'>Logout</a></p>";
+                 $user = $_SESSION['username'];
+                 echo "<p class='navbar-text'> <strong>{$user}</strong>, Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>,
+                 <a href='destroy.php' class='navbar-link'>Logout</a> <a href='deleteUser.php' class='navbar-link' style='margin-left: 36em;'>[Delete Your Account]</a> <a href='updateAccount.php' class='navbar-link'>[Update Your Account]</a></p>";
                }
                else
                {
-                 echo "<p class='navbar-text'>Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>, <a href='signIn.php' class='navbar-link'>Login</a> or <a href='signUp.php' class='navbar-link'>Create new account</a></p>";
+                 echo "<p class='navbar-text'>Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>,
+                 <a href='signIn.php' class='navbar-link'>Login</a> or <a href='signUp.php' class='navbar-link'>Create new account</a></p>";
                }
                ?>
-
             </div>
          </nav>
       </div>
@@ -91,30 +93,30 @@
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value1" class="btn btn-primary btn-md round1 slot1" value="1" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFirst();?></button> <span></span></li>
+  		<li class="game game-top winner"><button id = "1seed3" class="btn btn-primary btn-md round1 slot1" value="1" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFirst();?></button> <span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value2" class="btn btn-primary btn-md round1 slot2" value="2" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getEighth();?></button> <span></span></li>
+  		<li class="game game-bottom winner"><button id = "8seed3" class="btn btn-primary btn-md round1 slot2" value="2" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getEighth();?></button> <span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value3" class="btn btn-primary btn-md round1 slot3" value="3" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFourth();?></button><span></span></li>
+  		<li class="game game-top winner"><button id = "4seed3" class="btn btn-primary btn-md round1 slot3" value="3" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFourth();?></button><span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value4" class="btn btn-primary btn-md round1 slot4" value="4" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFifth();?></button> <span></span></li>
+  		<li class="game game-bottom winner"><button id = "5seed3" class="btn btn-primary btn-md round1 slot4" value="4" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getFifth();?></button> <span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value5" class="btn btn-primary btn-md round1 slot5" value="5" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSecond();?></button> <span></span></li>
+  		<li class="game game-top winner"><button id = "2seed3" class="btn btn-primary btn-md round1 slot5" value="5" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSecond();?></button> <span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value6" class="btn btn-primary btn-md round1 slot6" value="6" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSeventh();?></button> <span></span></li>
+  		<li class="game game-bottom winner"><button id = "7seed3" class="btn btn-primary btn-md round1 slot6" value="6" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSeventh();?></button> <span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value7" class="btn btn-primary btn-md round1 slot7" value="7" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getThird();?></button> <span></span></li>
+  		<li class="game game-top winner"><button id = "3seed3" class="btn btn-primary btn-md round1 slot7" value="7" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getThird();?></button> <span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value8" class="btn btn-primary btn-md round1 slot8" value="8" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSixth();?></button> <span></span></li>
+  		<li class="game game-bottom winner"><button id = "6seed3" class="btn btn-primary btn-md round1 slot8" value="8" style="width:200px; background-color: black; border-color:black"><?php echo $section3->getSixth();?></button> <span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
@@ -123,16 +125,16 @@
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-          <li class="game game-top winner"><button id = "value1" class="btn btn-primary btn-md round2 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
+          <li class="game game-top winner"><button id = "3game1" class="btn btn-primary btn-md round2 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value2" class="btn btn-primary btn-md round2 slot2" value="2" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
+  		<li class="game game-bottom winner"><button id = "3game2" class="btn btn-primary btn-md round2 slot2" value="2" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value3" class="btn btn-primary btn-md round2 slot3" value="3" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
+  		<li class="game game-top winner"><button id = "3game3" class="btn btn-primary btn-md round2 slot3" value="3" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value4" class="btn btn-primary btn-md round2 slot4" value="4" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
+  		<li class="game game-bottom winner"><button id = "3game4" class="btn btn-primary btn-md round2 slot4" value="4" style="width:200px; background-color: black; border-color:black"></button><span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
@@ -142,15 +144,15 @@
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
 
-  		<li class="game game-top winner"><button id = "value1" class="btn btn-primary btn-md round3 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
+  		<li class="game game-top winner"><button id = "3game5" class="btn btn-primary btn-md round3 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
   		<li class="game game-spacer">&nbsp;</li>
-  		<li class="game game-bottom winner"><button id = "value2" class="btn btn-primary btn-md round3 slot2" value="2" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
+  		<li class="game game-bottom winner"><button id = "3game6" class="btn btn-primary btn-md round3 slot2" value="2" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
 
   		<li class="spacer">&nbsp;</li>
   		<li class="spacer">&nbsp;</li>
   	</ul>
   	<ul class="round round-4">
-  		<li class="game game-top winner"><button class="btn btn-primary btn-md round4 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
+  		<li class="game game-top winner"><button id = "3game7" class="btn btn-primary btn-md round4 slot1" value="1" style="width:200px; background-color: black; border-color:black"></button><span></span></li><span></span></li>
   	</ul>
   </main>
 <?php
@@ -187,10 +189,6 @@
         var nrv = Math.floor((+rv+1)/2);
         $('button.round2.slot'+nrv).html($(this).html());
         $('button.round2.slot'+nrv).show();
-
-        $('#value' + rv).attr("disabled", true);
-          $('#value' + rv2).attr("disabled", true);
-        //disable both buttons from the game
     });
     /* For second round */
     $('button.round2').click(function() {
@@ -204,8 +202,6 @@
         $('button.round3.slot'+nrv).html($(this).html());
         $('button.round3.slot'+nrv).show();
 
-        $('button.round2#value' + rv).attr("disabled", true);
-          $('button.round2#value' + rv2).attr("disabled", true);
     });
     /* For third round */
     $('button.round3').click(function() {

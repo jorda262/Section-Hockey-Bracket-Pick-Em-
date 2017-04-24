@@ -1,5 +1,6 @@
 <?php
-include 'sectionValidation.php';
+session_start();
+include 'databaseUtilities.php';
 
 #ARRAY OF EVERY TEAM
 $teams = array("Lakeville North", "Lakeville South", "Farmington","Rochester Century", "Owatonna", "Rochester JM", "Rochester Mayo", "Dodge County",
@@ -27,6 +28,33 @@ foreach ($teams as $team)
 }
 #SORT TEAMS ALPHABETICALLY
 sort($teams);
+
+#Validation for creating a new user - adding them to the database
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+  $fn = $_POST['firstName'];
+  $ln = $_POST['lastName'];
+  $e = $_POST['email'];
+  $p = $_POST['password'];
+  $pc = $_POST['passwordConfirm'];
+  $ft = $_POST['favoriteTeam'];
+  $un = $_SESSION['username'];
+  if((isset($fn) && !empty($fn)) && (isset($ln) && !empty($ln)) && (isset($e) && !empty($e)) &&
+  (isset($p) && !empty($p)) && (isset($pc) && !empty($pc)) && (isset($ft) && !empty($ft)))
+  {
+    if($p == $pc)
+    {
+      if(validateEmail($e))
+      {
+        updateAccount($un,$fn,$ln,$e,$p,$ft);
+        header('Location: section1AA.php');
+      }
+      else{echo "Invalid email address";}
+    }
+    else{echo "Passwords do not match";}
+  }
+  else {echo "All fields required";}
+}
 ?>
 
 <html>
@@ -52,7 +80,19 @@ sort($teams);
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                </button>
-               <p class="navbar-text">Welcome to <strong><a href ="section1AA.php" class="navbar-link">MN Puck Picks</a></strong>, <a href="signIn.php" class="navbar-link">Login</a> or <a href="signUp.php" class="navbar-link">Create new account</a></p>
+               <?php
+               if(isset($_SESSION['username']))
+               {
+                 $user = $_SESSION['username'];
+                 echo "<p class='navbar-text'> <strong>{$user}</strong>, Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>,
+                 <a href='destroy.php' class='navbar-link'>Logout</a>";
+               }
+               else
+               {
+                 echo "<p class='navbar-text'>Welcome to <strong><a href ='section1AA.php' class='navbar-link'>MN Puck Picks</a></strong>,
+                 <a href='signIn.php' class='navbar-link'>Login</a> or <a href='signUp.php' class='navbar-link'>Create new account</a></p>";
+               }
+               ?>
             </div>
          </nav>
       </div>
@@ -61,7 +101,7 @@ sort($teams);
       <div class="container">
          <div class="row">
             <div class="col-md-8">
-                <h1> Sign-Up for the Section Tournament Challenge</h1>
+                <h1>Update your account- Fill all the fields</h1>
             </div>
             <div class="col-md-4">
             </div>
@@ -74,15 +114,14 @@ sort($teams);
 <!-- SIGN UP FORM -->
 <div class="box">
   <div id = "verticalSpace">
-    <form id="signup" method = "POST" action ="signUpValidation.php" >
+    <form id="signup" method = "POST" action ="updateAccount.php" >
         <div class="header">
-            <h3>Sign Up</h3>
+            <h3>Update Account</h3>
         </div>
         <div class="sep"></div>
         <div class="inputs">
             <input type="text" name ="firstName" placeholder="First-Name" style="width:100%;"/>
             <input type="text" name="lastName" placeholder="Last-Name" style="width:100%;"/>
-            <input type="text" name= "userName" placeholder="User Name" style="width:100%;"/>
             <input type="email" name = "email" placeholder="Email" style="width:100%;"/>
             <input type="password" name ="password" placeholder="Password" style="width:100%;"/>
             <input type="password" name ="passwordConfirm" placeholder="Password Confirm" style="width:100%;"/>
@@ -95,7 +134,7 @@ sort($teams);
                 }
               ?>
             </select>
-            <button type="submit" class="btn btn-primary" style="width:100%; background-color:black; border-color:black;">SIGN UP</button>
+            <button type="submit" class="btn btn-primary" style="width:100%; background-color:black; border-color:black;">UPDATE ACCOUNT</button>
           </form>
         </div>
   </div>

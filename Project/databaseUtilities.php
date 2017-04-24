@@ -1,5 +1,4 @@
 <?php
-
 #Function for retrieving PDO Object
 function getPDO()
 {
@@ -27,6 +26,7 @@ function selectAll($table)
   return $array;
 }
 
+#Function for selecting a column from a table
 function selectColumn($table, $column)
 {
   $pdo = getPDO();
@@ -37,16 +37,11 @@ function selectColumn($table, $column)
   return $array;
 }
 
-
-
-
-#Function for inserting user into user-table
-function insertUser($userName, $firstName, $lastName, $email,
-                $password, $favoriteTeam)
+#Function for inserting user into database
+function insertUser($userName, $firstName, $lastName, $email,$password, $favoriteTeam)
 {
   $pdo = getPDO();
-  $sql = "insert into users (username, firstname, lastname, email, password, favoriteteam)
-          values (:username, :firstname, :lastname, :email, :password, :favoriteteam)";
+  $sql = "insert into users (username, firstname, lastname, email, password, favoriteteam) values (:username, :firstname, :lastname, :email, :password, :favoriteteam)";
   $statement = $pdo->prepare($sql);
   $statement->bindValue(":username" , $userName);
   $statement->bindValue(":firstname" , $firstName);
@@ -55,14 +50,13 @@ function insertUser($userName, $firstName, $lastName, $email,
   $statement->bindValue(":password" , $password);
   $statement->bindValue(":favoriteteam", $favoriteTeam);
   $statement->execute();
-
 }
 
+#Function for inserting section picks into database
 function insertSectionTester($game1, $game2, $game3, $game4, $game5, $game6, $game7)
 {
   $pdo = getPDO();
-  $sql = "insert into section1 (game1, game2, game3, game4, game5, game6, game7)
-          values (:game1, :game2, :game3, :game4, :game5, :game6, :game7)";
+  $sql = "insert into section1 (game1, game2, game3, game4, game5, game6, game7) values (:game1, :game2, :game3, :game4, :game5, :game6, :game7)";
   $statement = $pdo->prepare($sql);
   $statement->bindValue(":game1" , $game1);
   $statement->bindValue(":game2" , $game2);
@@ -72,23 +66,70 @@ function insertSectionTester($game1, $game2, $game3, $game4, $game5, $game6, $ga
   $statement->bindValue(":game6" , $game6);
   $statement->bindValue(":game6" , $game6);
   $statement->execute();
-
 }
 
-#function to validate user and user's password
+#Function to validate user and password
 function validateUser($username, $password)
 {
-$pdo = getPDO();
-$sql = "SELECT * FROM users WHERE username=:username AND password=:password";
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(":username" , $username);
-$stmt->bindValue(":password" , $password);
-$stmt->execute();
-if($stmt->rowCount() > 0)
-{
-  return true;
-}
-return false;
+  $pdo = getPDO();
+  $sql = "SELECT * FROM users WHERE username=:username AND password=:password";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":username" , $username);
+  $stmt->bindValue(":password" , $password);
+  $stmt->execute();
+  if($stmt->rowCount() > 0)
+  {
+    return true;
+  }
+  return false;
 }
 
- ?>
+#Function for validating the user name and making sure the name isnt already in use by another person
+function validateUserName($username)
+{
+  $pdo = getPDO();
+  $sql = "SELECT * FROM users WHERE username=:username";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":username" , $username);
+  $stmt->execute();
+  if($stmt->rowCount() > 0)
+  {
+    return false;
+  }
+  return true;
+}
+
+#Function for validating email for sign up page
+function validateEmail($email)
+{
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+  {
+    return false;
+  }
+  return true;
+}
+
+#Function for deleting a user account from the database
+function deleteUser($username)
+{
+  $pdo = getPDO();
+  $sql = "DELETE FROM users WHERE username=:username";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":username" , $username);
+  $stmt->execute();
+}
+
+function updateAccount($username, $firstname, $lastname, $email, $password, $favoriteteam)
+{
+  $pdo = getPDO();
+  $sql = "UPDATE users SET firstname=:firstname, lastname=:lastname, email=:email, password=:password, favoriteteam=:favoriteteam WHERE username=:username";
+  $statement = $pdo->prepare($sql);
+  $statement->bindValue(":username" , $username);
+  $statement->bindValue(":firstname" , $firstname);
+  $statement->bindValue(":lastname" , $lastname);
+  $statement->bindValue(":email" , $email);
+  $statement->bindValue(":password" , $password);
+  $statement->bindValue(":favoriteteam", $favoriteteam);
+  $statement->execute();
+}
+?>

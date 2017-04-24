@@ -33,7 +33,5 @@ echo ($_POST["insert"]);
         $game7 = $_POST['game7'];
         insertSectionTester($game1, $game2, $game3, $game4, $game5, $game6, $game7);
       }
-
   }
-
  ?>
