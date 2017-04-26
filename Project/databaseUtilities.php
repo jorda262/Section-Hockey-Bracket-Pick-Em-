@@ -53,19 +53,53 @@ function insertUser($userName, $firstName, $lastName, $email,$password, $favorit
 }
 
 #Function for inserting section picks into database
-function insertSectionTester($game1, $game2, $game3, $game4, $game5, $game6, $game7)
+function insertSectionTester($section, $username, $game1, $game2, $game3, $game4, $game5, $game6, $game7)
+{
+  if(rowEmpty($section,$username))
+  {
+    $pdo = getPDO();
+    $sql = "INSERT INTO $section (username, game1, game2, game3, game4, game5, game6, game7) values (:username, :game1, :game2, :game3, :game4, :game5, :game6, :game7)";
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":username" , $username);
+    $statement->bindValue(":game1" , $game1);
+    $statement->bindValue(":game2" , $game2);
+    $statement->bindValue(":game3" , $game3);
+    $statement->bindValue(":game4" , $game4);
+    $statement->bindValue(":game5" , $game5);
+    $statement->bindValue(":game6" , $game6);
+    $statement->bindValue(":game7" , $game7);
+    $statement->execute();
+  }
+  else
+  {
+    $pdo = getPDO();
+    $sql = "UPDATE $section SET username=:username, game1=:game1, game2=:game2 , game3=:game3, game4=:game4, game5=:game5, game6=:game6 , game7=:game7 WHERE 1";
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(":username" , $username);
+    $statement->bindValue(":game1" , $game1);
+    $statement->bindValue(":game2" , $game2);
+    $statement->bindValue(":game3" , $game3);
+    $statement->bindValue(":game4" , $game4);
+    $statement->bindValue(":game5" , $game5);
+    $statement->bindValue(":game6" , $game6);
+    $statement->bindValue(":game7" , $game7);
+    $statement->execute();
+  }
+}
+
+#Function to validate user and password
+function rowEmpty($section, $username)
 {
   $pdo = getPDO();
-  $sql = "insert into section1 (game1, game2, game3, game4, game5, game6, game7) values (:game1, :game2, :game3, :game4, :game5, :game6, :game7)";
-  $statement = $pdo->prepare($sql);
-  $statement->bindValue(":game1" , $game1);
-  $statement->bindValue(":game2" , $game2);
-  $statement->bindValue(":game3" , $game3);
-  $statement->bindValue(":game4" , $game4);
-  $statement->bindValue(":game5" , $game5);
-  $statement->bindValue(":game6" , $game6);
-  $statement->bindValue(":game6" , $game6);
-  $statement->execute();
+  $sql = "SELECT * FROM $section WHERE username=:username";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":username" , $username);
+  $stmt->execute();
+  if($stmt->rowCount() < 1)
+  {
+    return true;
+  }
+  return false;
 }
 
 #Function to validate user and password

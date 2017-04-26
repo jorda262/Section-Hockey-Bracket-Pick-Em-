@@ -1,37 +1,25 @@
-<?php
+<?
+session_start();
 include 'databaseUtilities.php';
-echo ($_POST["insert"]);
-  if ($_SERVER['REQUEST_METHOD'] == 'POST')
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+  $game1 = $_POST['3game1'];
+  $game2 = $_POST['3game2'];
+  $game3 = $_POST['3game3'];
+  $game4 = $_POST['3game4'];
+  $game5 = $_POST['3game5'];
+  $game6 = $_POST['3game6'];
+  $game7 = $_POST['3game7'];
+  if((isset($game1) && !empty($game1)) && (isset($game2) && !empty($game2)) && (isset($game3) && !empty($game3)) && (isset($game4)
+  && !empty($game4)) && (isset($game5) && !empty($game5)) && (isset($game6) && !empty($game6)) && (isset($game7) && !empty($game7)))
   {
-  if(isset($_POST['game1']) && !empty($_POST['game1']))
-      {
-        $game1 = $_POST['game1'];
-        echo "ok";
-      }
-  if(isset($_POST['game2']) && !empty($_POST['game2']))
-    {
-      $game2 = $_POST['game2'];
-    }
-  if(isset($_POST['game3']) && !empty($_POST['game3']))
-    {
-      $game3 = $_POST['game3'];
-    }
-  if(isset($_POST['game4']) && !empty($_POST['game4']))
-    {
-      $game4 = $_POST['game4'];
-    }
-  if(isset($_POST['game5']) && !empty($_POST['game5']))
-    {
-      $game5 = $_POST['game5'];
-    }
-  if(isset($_POST['game6']) && !empty($_POST['game6']))
-      {
-        $game6 = $_POST['game6'];
-      }
-  if(isset($_POST['game7']) && !empty($_POST['game7']))
-      {
-        $game7 = $_POST['game7'];
-        insertSectionTester($game1, $game2, $game3, $game4, $game5, $game6, $game7);
-      }
+    $username = $_SESSION['username'];
+    insertSectionTester($username, $game1, $game2, $game3, $game4, $game5, $game6, $game7);
+    header('Location: section1AA.php');
   }
- ?>
+  else {
+    echo "$game1";
+  }
+}
+?>
