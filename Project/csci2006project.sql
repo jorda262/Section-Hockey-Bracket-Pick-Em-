@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 21, 2017 at 10:27 PM
+-- Generation Time: Apr 27, 2017 at 05:46 PM
 -- Server version: 5.6.34
 -- PHP Version: 7.1.0
 
@@ -132,6 +132,14 @@ CREATE TABLE `section1` (
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `section1`
+--
+
+INSERT INTO `section1` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Lakeville North', 'Owatonna', 'Lakeville South', 'Farmington', 'Lakeville North', 'Lakeville South', 'Lakeville South'),
+('jorda', 'Lakeville North', 'Rochester Century', 'Lakeville South', 'Farmington', 'Lakeville North', 'Lakeville South', 'Lakeville North');
+
 -- --------------------------------------------------------
 
 --
@@ -148,6 +156,14 @@ CREATE TABLE `section2` (
   `game6` varchar(100) DEFAULT NULL,
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section2`
+--
+
+INSERT INTO `section2` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Eden Prairie', 'Prior Lake', 'Holy Family', 'Minnetonka', 'Eden Prairie', 'Holy Family', 'Eden Prairie'),
+('jorda', 'Eden Prairie', 'Prior Lake', 'Holy Family', 'Minnetonka', 'Eden Prairie', 'Holy Family', 'Eden Prairie');
 
 -- --------------------------------------------------------
 
@@ -166,6 +182,14 @@ CREATE TABLE `section3` (
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `section3`
+--
+
+INSERT INTO `section3` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'St. Thomas Academy', 'Eagan', 'Burnsville', 'Bloomington Jefferson', 'St. Thomas Academy', 'Bloomington Jefferson', 'St. Thomas Academy'),
+('jorda', 'St. Thomas Academy', 'Rosemount', 'Burnsville', 'Eastview', 'St. Thomas Academy', 'Burnsville', 'St. Thomas Academy');
+
 -- --------------------------------------------------------
 
 --
@@ -182,6 +206,14 @@ CREATE TABLE `section4` (
   `game6` varchar(100) DEFAULT NULL,
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section4`
+--
+
+INSERT INTO `section4` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Stillwater', 'Woodbury', 'Hill Murray', 'Tartan', 'Stillwater', 'Hill Murray', 'Hill Murray'),
+('jorda', 'Stillwater', 'Woodbury', 'Hill Murray', 'White Bear Lake', 'Stillwater', 'Hill Murray', 'Hill Murray');
 
 -- --------------------------------------------------------
 
@@ -200,6 +232,14 @@ CREATE TABLE `section5` (
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `section5`
+--
+
+INSERT INTO `section5` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Centennial', 'Champlin Park', 'Maple Grove', 'Blaine', 'Centennial', 'Maple Grove', 'Maple Grove'),
+('jorda', 'Centennial', 'Anoka', 'Maple Grove', 'Blaine', 'Centennial', 'Blaine', 'Centennial');
+
 -- --------------------------------------------------------
 
 --
@@ -216,6 +256,14 @@ CREATE TABLE `section6` (
   `game6` varchar(100) DEFAULT NULL,
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section6`
+--
+
+INSERT INTO `section6` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Edina', 'St. Louis Park', 'Cretin Derham Hall', 'Wayzata', 'Edina', 'Wayzata', 'Wayzata'),
+('jorda', 'Edina', 'Benilde St. Margaret', 'Cretin Derham Hall', 'Wayzata', 'Edina', 'Wayzata', 'Edina');
 
 -- --------------------------------------------------------
 
@@ -234,6 +282,14 @@ CREATE TABLE `section7` (
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `section7`
+--
+
+INSERT INTO `section7` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Elk River', 'Grand Rapids', 'Duluth East', 'Cloquet', 'Grand Rapids', 'Duluth East', 'Grand Rapids'),
+('jorda', 'Elk River', 'Grand Rapids', 'Duluth East', 'Cloquet', 'Grand Rapids', 'Duluth East', 'Grand Rapids');
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +306,14 @@ CREATE TABLE `section8` (
   `game6` varchar(100) DEFAULT NULL,
   `game7` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section8`
+--
+
+INSERT INTO `section8` (`username`, `game1`, `game2`, `game3`, `game4`, `game5`, `game6`, `game7`) VALUES
+('mike', 'Moorhead', 'Brainerd', 'St. Michael Albertville', 'Roseau', 'Moorhead', 'Roseau', 'Moorhead'),
+('jorda', 'Moorhead', 'Brainerd', 'St. Michael Albertville', 'Roseau', 'Moorhead', 'Roseau', 'Moorhead');
 
 -- --------------------------------------------------------
 
@@ -271,9 +335,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `firstname`, `lastname`, `email`, `password`, `favoriteteam`) VALUES
-('baani', 'Zak', 'Baani', 'zak@century.edu', 'java', 'Bemiji'),
-('jorda262', 'Taylor', 'Jordan', 'jorda262@century.edu', '1234', 'Centennial'),
-('mike', 'Mike', 'Albrecht', 'mike@magic.com', 'magic', 'Maple Grove'),
+('jorda', 'Taylor', 'Jordan', 'jorda262@century.edu', '1234', 'Duluth East'),
+('mike', 'MIke', 'Albrecht', 'magic@mike.com', '4444', 'Armstrong Cooper'),
 ('PAIN', 'Christopher', 'Payne', 'maxp74442@gmail.com', '1111', 'Anoka');
 
 --

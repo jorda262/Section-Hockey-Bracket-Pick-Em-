@@ -143,9 +143,22 @@ function validateEmail($email)
   return true;
 }
 
+function deleteSectionPicks($username)
+{
+  for($i=1; $i<=8; $i++)
+  {
+    $pdo = getPDO();
+    $sql = "DELETE FROM section$i WHERE username=:username";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(":username" , $username);
+    $stmt->execute();
+  }
+}
+
 #Function for deleting a user account from the database
 function deleteUser($username)
 {
+  deleteSectionPicks($username);
   $pdo = getPDO();
   $sql = "DELETE FROM users WHERE username=:username";
   $stmt = $pdo->prepare($sql);
