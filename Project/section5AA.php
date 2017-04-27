@@ -3,6 +3,8 @@
   include 'databaseUtilities.php';
   include 'section.class.php';
   $section5 = new Section("Centennial", "Maple Grove", "Blaine","Champlin Park", "Anoka", "Coon Rapids", "Spring Lake Park", "Osseo");
+  $autoFill = '';
+
   if ($_SERVER['REQUEST_METHOD'] == 'POST')
   {
     $game1 = $_POST['5game1'];
@@ -22,6 +24,42 @@
     }
     else {
       header('Location: section5AA.php');
+    }
+  }
+
+  if(isset($_SESSION['username']))
+  {
+    $username = $_SESSION['username'];
+    $section = 'section5';
+    if(rowEmpty($section, $username))
+    {
+      # if empty DO NOTHING
+    }
+    else
+    {
+      $games = getRow($section, $username);
+      $autoFill .= "$('button.round2.slot1').html('{$games['game1']}');".
+                   "$('button.round2.slot1').show();".
+                   "$('input.round2.slot1').val('{$games['game1']}');".
+                   "$('button.round2.slot2').html('{$games['game2']}');".
+                   "$('button.round2.slot2').show();".
+                   "$('input.round2.slot2').val('{$games['game2']}');".
+                   "$('button.round2.slot3').html('{$games['game3']}');".
+                   "$('button.round2.slot3').show();".
+                   "$('input.round2.slot3').val('{$games['game3']}');".
+                   "$('button.round2.slot4').html('{$games['game4']}');".
+                   "$('button.round2.slot4').show();".
+                   "$('input.round2.slot4').val('{$games['game4']}');".
+                   "$('button.round3.slot1').html('{$games['game5']}');".
+                   "$('button.round3.slot1').show();".
+                   "$('input.round3.slot1').val('{$games['game5']}');".
+                   "$('button.round3.slot2').html('{$games['game6']}');".
+                   "$('button.round3.slot2').show();".
+                   "$('input.round3.slot2').val('{$games['game6']}');".
+                   "$('button.round4.slot1').html('{$games['game7']}');".
+                   "$('button.round4.slot1').show();".
+                   "$('input.round4.slot1').val('{$games['game7']}');";
+
     }
   }
 ?>
@@ -179,11 +217,11 @@
   <?php
     if(isset($_SESSION['username']))
     {
-      echo "<button class='btn btn-primary' style='background-color:black; width:10em; margin-left:30em; margin-right:1em; border-color:black'>Reset</button><input type='submit' class='btn btn-primary' style='background-color:black; width:10em; border-color:black'>";
+      echo "<button id='reset' type='button' class='btn btn-primary' style='background-color:black; width:10em; margin-left:30em; margin-right:1em; border-color:black'>Reset</button><input type='submit' class='btn btn-primary' style='background-color:black; width:10em; border-color:black'>";
     }
     else
     {
-      echo "<button class='btn btn-primary' style='background-color:black; width:10em; margin-left:32em; border-color:black'>Reset</button>";
+      echo "<button id='reset' type='button' class='btn btn-primary' style='background-color:black; width:10em; margin-left:32em; border-color:black'>Reset</button>";
     }
   ?>
   </div>
@@ -198,6 +236,7 @@
     $('input.round2').hide();
     $('input.round3').hide();
     $('input.round4').hide();
+    <?php echo $autoFill; ?>
 
     /* For first round */
     $('button.round1').click(function() {
@@ -234,6 +273,23 @@
         $('button.round4.slot'+nrv).html($(this).html());
         $('button.round4.slot'+nrv).show();
         $('input.round4.slot'+nrv).val($(this).html());
+    });
+
+    $('#reset').click(function() {
+      $('button.round2.slot1').hide();
+      $('button.round2.slot2').hide();
+      $('button.round2.slot3').hide();
+      $('button.round2.slot4').hide();
+      $('button.round3.slot1').hide();
+      $('button.round3.slot2').hide();
+      $('button.round4.slot1').hide();
+      $('input.round2.slot1').val(0);
+      $('input.round2.slot2').val(0);
+      $('input.round2.slot3').val(0);
+      $('input.round2.slot4').val(0);
+      $('input.round3.slot1').val(0);
+      $('input.round3.slot2').val(0);
+      $('input.round4.slot1').val(0);
     });
       </script>
 </body>

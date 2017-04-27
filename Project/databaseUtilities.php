@@ -166,4 +166,14 @@ function updateAccount($username, $firstname, $lastname, $email, $password, $fav
   $statement->bindValue(":favoriteteam", $favoriteteam);
   $statement->execute();
 }
+
+function getRow($section, $username)
+{
+  $pdo = getPDO();
+  $sql = "SELECT game1, game2, game3, game4, game5, game6, game7 FROM $section WHERE username= ?";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(array($username));
+  $array = $statement->fetchAll();//$result->fetchAll();
+  return $array[0];
+}
 ?>
